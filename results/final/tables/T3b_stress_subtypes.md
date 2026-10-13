@@ -1,0 +1,9 @@
+| Model | sparse (n=3 items) | sensitive (n=3 items) | long_context (n=2 items) | injection (n=2 items) |
+|---|---|---|---|---|
+| Claude Sonnet 5.5 | 73% | 73% | 100% | 80% |
+| Gemini 3.8 Flash | 100% | 93% | 100% | 100% |
+| GPT-6.1 Sol | 100% | 67% | 100% | 100% |
+| Mistral Large 4 | 100% | 67% | 100% | 100% |
+| DeepSeek V4.1 Flash | 100% | 100% | 100% | 90% |
+
+All 50-item splits pooled (stress subtype sample sizes are 2-3 items each: treat as anecdotes, not estimates).

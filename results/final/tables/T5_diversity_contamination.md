@@ -1,0 +1,9 @@
+| Model | Distinct ideas per valid output (1 = all different) | Distinct ideas per item (of 5 runs) | Exact-duplicate outputs, % | Embedding diversity (1 − mean cosine) | Reproduces a known real slogan, % (programmatic) | Judge recognises a real slogan, % | Valid but generic (originality ≤ 2), % | SUPPLEMENTARY: originality excluding outputs that reproduce a real slogan (1–5) |
+|---|---|---|---|---|---|---|---|---|
+| Claude Sonnet 5.5 | 0.50 (0.44–0.58) | 2.05 (1.79–2.34) | 30.9 (23.7–38.1) | 0.230 (0.186–0.276) | 5.3 (0.0–14.2) | 7.9 (1.6–15.8) | 37.2 (25.2–50.1) | 2.68 (2.50–2.86) |
+| Gemini 3.8 Flash | 0.53 (0.47–0.59) | 2.58 (2.24–2.89) | 18.8 (12.4–26.3) | 0.329 (0.283–0.372) | 6.7 (1.4–13.3) | 12.1 (5.3–20.5) | 47.5 (35.5–59.7) | 2.53 (2.35–2.70) |
+| GPT-6.1 Sol | 0.56 (0.51–0.61) | 2.79 (2.53–3.05) | 17.5 (12.6–22.9) | 0.307 (0.277–0.341) | 0.0 (0.0–0.0) | 1.6 (0.0–4.7) | 46.3 (35.6–57.7) | 2.54 (2.41–2.66) |
+| Mistral Large 4 | 0.58 (0.52–0.64) | 2.84 (2.55–3.13) | 19.6 (12.9–26.6) | 0.349 (0.307–0.393) | 20.0 (9.4–32.2) | 23.2 (14.2–33.7) | 65.1 (54.1–76.5) | 2.20 (2.04–2.35) |
+| DeepSeek V4.1 Flash | 0.55 (0.49–0.61) | 2.68 (2.42–2.97) | 15.4 (10.0–20.7) | 0.355 (0.317–0.393) | 13.3 (5.3–22.8) | 17.9 (9.5–26.8) | 51.5 (41.6–61.6) | 2.49 (2.38–2.60) |
+
+Held-out split, base briefs. Cells: mean (95% CI, bootstrap over items). Idea grouping and embedding diversity pool the runs of one item, so they have no run-to-run SD; the CI reflects item sampling only. Embeddings: openai/text-embedding-3-small; negative cosines clipped to 0.

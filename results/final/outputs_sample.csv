@@ -1,0 +1,61 @@
+model,item_id,company,variant,run,raw_output_unedited,valid,originality_j1
+anthropic/claude-sonnet-5.5,c12,FedEx,base,3,"Where speed meets certainty, every package arrives on time.",False,2
+anthropic/claude-sonnet-5.5,c50,Costco,base,2,Join the savings. Leave with a full cart.,True,3
+anthropic/claude-sonnet-5.5,c41,Berkshire Hathaway,base,2,"Built to last, one patient decision at a time.",True,3
+anthropic/claude-sonnet-5.5,c48,Siemens,base,5,"Engineering the future, from factory floors to hospital wards.",True,3
+anthropic/claude-sonnet-5.5,c26,American Express,base,4,Where every purchase opens a world of possibility.,True,2
+anthropic/claude-sonnet-5.5,c25,Sony,base,3,Feel every moment the way it was meant to be.,True,1
+anthropic/claude-sonnet-5.5,c48,Siemens,base,3,"Engineering the future, from factory floors to patient bedsides.",True,3
+anthropic/claude-sonnet-5.5,c02,Coca-Cola,base,3,"Open a Coke, open a moment worth sharing.",True,3
+anthropic/claude-sonnet-5.5,c20,Uber,base,1,"Wherever you're going, tap once and you're on your way.",True,3
+anthropic/claude-sonnet-5.5,c41,Berkshire Hathaway,base,3,Built on patience. Backed by permanence. Trusted for generations.,True,3
+anthropic/claude-sonnet-5.5,c40,IKEA,base,1,"Your first apartment, built your way.",True,3
+anthropic/claude-sonnet-5.5,c28,Red Bull,base,4,Fuel the impossible. Then go beyond it.,True,3
+google/gemini-3.8-flash,c09,Disney,base,1,"Where magic lives, and stories never end.",True,3
+google/gemini-3.8-flash,c42,Caterpillar,base,4,Built to move the earth.,True,3
+google/gemini-3.8-flash,c31,Airbnb,base,5,Open your home to the world.,True,3
+google/gemini-3.8-flash,c38,Walmart,base,5,Smart back-to-school savings for every family.,True,1
+google/gemini-3.8-flash,c37,Spotify,base,1,Your playlist knows you’re procrastinating.,True,4
+google/gemini-3.8-flash,c29,Nike,base,2,Your first finish line starts here.,True,3
+google/gemini-3.8-flash,c43,Cargill,rich,2,The unseen connection that feeds the world.,True,4
+google/gemini-3.8-flash,c28,Red Bull,base,5,Red Bull gives you wings.,True,5
+google/gemini-3.8-flash,c16,PepsiCo,base,5,"Satisfying every craving, refreshing every moment.",True,1
+google/gemini-3.8-flash,c38,Walmart,base,1,Smarter back to school for every family budget.,True,2
+google/gemini-3.8-flash,c44,Altria,base,1,"Shaping tomorrow’s choices, defined by enduring American heritage.",False,2
+google/gemini-3.8-flash,c40,IKEA,base,5,Make your first apartment feel like home.,True,2
+openai/gpt-6.1-sol,c21,Tesla,base,3,Power your world. Drive it forward.,True,2
+openai/gpt-6.1-sol,c11,Visa,base,1,"Connecting your world, one payment at a time.",True,2
+openai/gpt-6.1-sol,c17,L'Oreal,base,3,"Beauty, in every expression of you.",True,2
+openai/gpt-6.1-sol,c27,JPMorgan Chase,base,5,Where your ambition meets a world of possibility.,True,1
+openai/gpt-6.1-sol,c19,IBM,base,2,Intelligence connected. Enterprise transformed.,True,2
+openai/gpt-6.1-sol,c05,Google,base,2,"A world of possibility, one search away.",True,3
+openai/gpt-6.1-sol,c10,Netflix,base,5,Press play. Find your next obsession.,True,3
+openai/gpt-6.1-sol,c22,Nestle,base,3,"Everyday goodness, for every chapter of life.",True,1
+openai/gpt-6.1-sol,c48,Siemens,base,4,Engineering intelligence. Advancing industry. Transforming tomorrow.,True,2
+openai/gpt-6.1-sol,c10,Netflix,base,1,Your next great story is one play away.,True,3
+openai/gpt-6.1-sol,c05,Google,base,3,Find what matters. Explore what’s possible.,True,2
+openai/gpt-6.1-sol,c16,PepsiCo,base,3,Big flavors. Brighter moments.,True,2
+mistralai/mistral-large-4-0,c44,Altria,base,3,"I can't create advertising slogans for tobacco companies, as that would promote the sale and use of harmful products.",False,
+mistralai/mistral-large-4-0,c16,PepsiCo,base,4,"Fuel your fun, from snack to sip.",True,3
+mistralai/mistral-large-4-0,c13,UPS,base,5,The world on time,True,3
+mistralai/mistral-large-4-0,c38,Walmart,base,1,Back to school with your family,True,1
+mistralai/mistral-large-4-0,c21,Tesla,base,5,Drive the future,True,1
+mistralai/mistral-large-4-0,c21,Tesla,base,4,Accelerate the future.,True,2
+mistralai/mistral-large-4-0,c49,Pfizer,base,2,Working together for a healthier world,True,1
+mistralai/mistral-large-4-0,c46,Anheuser-Busch,base,4,Brewing moments that bring America together,True,3
+mistralai/mistral-large-4-0,c04,Amazon,base,5,"From A to Z, delivered to you",True,3
+mistralai/mistral-large-4-0,c33,Mastercard,base,5,"Everyday purchases, paid your way",True,2
+mistralai/mistral-large-4-0,c06,Microsoft,base,5,Empowering every person and organization to achieve more,True,2
+mistralai/mistral-large-4-0,c22,Nestle,base,3,Nourishing every moment of life,True,2
+deepseek/deepseek-v4.1-flash,c21,Tesla,base,3,Drive the future. It updates itself.,True,3
+deepseek/deepseek-v4.1-flash,c49,Pfizer,base,4,Breakthroughs that change patients' lives,True,2
+deepseek/deepseek-v4.1-flash,c03,McDonald's,base,5,"Breakfast, burgers, fries: happiness served all day.",True,3
+deepseek/deepseek-v4.1-flash,c29,Nike,base,5,Every mile begins with one step.,True,2
+deepseek/deepseek-v4.1-flash,c21,Tesla,base,5,Drive the future. Power the world.,True,3
+deepseek/deepseek-v4.1-flash,c43,Cargill,rich,4,The unseen link from farm to table.,True,3
+deepseek/deepseek-v4.1-flash,c27,JPMorgan Chase,base,3,Chase your dreams. We'll bank on the journey.,True,3
+deepseek/deepseek-v4.1-flash,c15,Starbucks,base,5,"Where coffee meets comfort, between home and work.",True,3
+deepseek/deepseek-v4.1-flash,c07,Samsung,base,5,"Innovation for Every Moment, Everywhere",True,1
+deepseek/deepseek-v4.1-flash,c43,Cargill,base,5,"Nourishing the world, one harvest at a time.",True,2
+deepseek/deepseek-v4.1-flash,c34,Ford,base,4,Work hard. Ford works harder.,True,2
+deepseek/deepseek-v4.1-flash,c40,IKEA,base,2,Affordable Swedish style for your first apartment.,True,2

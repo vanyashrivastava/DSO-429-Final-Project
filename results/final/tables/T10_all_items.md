@@ -1,0 +1,9 @@
+| Model | All 50: valid % | originality | Dev (n=12): valid % | originality | Held-out (n=38): valid % | originality |
+|---|---|---|---|---|---|---|
+| Claude Sonnet 5.5 | 87.6 ± 6.7 | 2.62 | 93.3 ± 7.0 | 2.54 | 85.8 ± 8.4 | 2.65 |
+| Gemini 3.8 Flash | 94.4 ± 2.2 | 2.54 | 86.7 ± 4.6 | 2.38 | 96.8 ± 3.4 | 2.58 |
+| GPT-6.1 Sol | 97.2 ± 1.1 | 2.51 | 91.7 ± 0.0 | 2.38 | 98.9 ± 1.4 | 2.54 |
+| Mistral Large 4 | 94.0 ± 1.4 | 2.34 | 81.7 ± 7.0 | 2.23 | 97.9 ± 1.2 | 2.37 |
+| DeepSeek V4.1 Flash | 98.8 ± 1.8 | 2.53 | 100.0 ± 0.0 | 2.43 | 98.4 ± 2.4 | 2.56 |
+
+Full results table for the appendix. Headline numbers use the held-out split only.

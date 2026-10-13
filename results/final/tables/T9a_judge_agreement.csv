@@ -1,0 +1,7 @@
+Criterion,Raw agreement,Cohen κ,Grok 4.7: yes / mean,Claude Opus 5.5: yes / mean
+coherent,100.0%,nan,100.0%,100.0%
+relevant,98.0%,0.34,98.8%,98.1%
+complies,100.0%,1.00,97.3%,97.3%
+faithful,99.6%,0.60,99.5%,99.5%
+recognized,93.3%,0.75,12.6%,18.4%
+originality (1–5),64.3% exact,QWK 0.64 / Spearman 0.65,2.52,2.25

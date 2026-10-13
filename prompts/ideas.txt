@@ -1,0 +1,8 @@
+You are helping measure how varied a set of advertising slogans is. All slogans below were written for the same company. Group them by core idea: two slogans belong in the same group only if they pivot on the same underlying message or angle, even when the wording differs (for example "Fly higher" and "Rise above" are the same idea; "Fly higher" and "Low fares for everyone" are different ideas). Every slogan must appear in exactly one group.
+
+Company: {company}
+Slogans:
+{numbered}
+
+Reply with one JSON object and nothing else, in exactly this form (numbers refer to the slogans above):
+{{"groups": [[1, 3], [2], [4, 5]]}}

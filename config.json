@@ -1,0 +1,37 @@
+{
+  "benchmark": "slogan-bench-v1",
+  "n_runs": 5,
+  "pilot_runs": 1,
+  "seed": 429,
+  "generation": {
+    "temperature": 0.7,
+    "top_p": 1.0,
+    "max_tokens": 8000,
+    "reasoning": {"effort": "low", "exclude": true},
+    "use_seed_if_supported": true
+  },
+  "models": [
+    {"id": "anthropic/claude-sonnet-5.5", "label": "Claude Sonnet 5.5", "family": "anthropic", "color_slot": 1},
+    {"id": "google/gemini-3.8-flash", "label": "Gemini 3.8 Flash", "family": "google", "color_slot": 2},
+    {"id": "openai/gpt-6.1-sol", "label": "GPT-6.1 Sol", "family": "openai", "color_slot": 3},
+    {"id": "mistralai/mistral-large-4-0", "label": "Mistral Large 4", "family": "mistral", "color_slot": 4},
+    {"id": "deepseek/deepseek-v4.1-flash", "label": "DeepSeek V4.1 Flash", "family": "deepseek", "color_slot": 5}
+  ],
+  "judges": {
+    "primary": {"id": "x-ai/grok-4.7", "label": "Grok 4.7", "family": "x-ai"},
+    "probe": {"id": "anthropic/claude-opus-5.5", "label": "Claude Opus 5.5", "family": "anthropic"},
+    "temperature": 0,
+    "max_tokens": 4000,
+    "reasoning": {"effort": "low", "exclude": true}
+  },
+  "embedding_model": "openai/text-embedding-3-small",
+  "thresholds": {
+    "valid_rate": 0.95,
+    "originality_mean": 3.0,
+    "contextual_compliance": 0.90
+  },
+  "bootstrap": {"B": 2000, "seed": 429},
+  "concurrency": 6,
+  "timeout_s": 180,
+  "max_attempts": 4
+}

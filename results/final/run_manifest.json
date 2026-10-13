@@ -1,0 +1,183 @@
+{
+  "benchmark": "slogan-bench-v1",
+  "n_runs_configured": 5,
+  "models": {
+    "anthropic/claude-sonnet-5.5": {
+      "label": "Claude Sonnet 5.5",
+      "canonical_slug": "anthropic/claude-sonnet-5.5-20260928",
+      "first_call": "2026-10-12T15:10:26-0700",
+      "last_call": "2026-10-12T17:41:59-0700",
+      "calls": 265,
+      "errors": 0,
+      "resolved_models_seen": [
+        "anthropic/claude-sonnet-5.5"
+      ],
+      "providers_seen": [
+        "Claude Platform on AWS"
+      ],
+      "temperature_applied": "not accepted by model",
+      "top_p_applied": "not accepted by model",
+      "reasoning_setting": {
+        "effort": "low",
+        "exclude": true
+      },
+      "seed_applied": false,
+      "params_dropped_after_400": []
+    },
+    "google/gemini-3.8-flash": {
+      "label": "Gemini 3.8 Flash",
+      "canonical_slug": "google/gemini-3.8-flash-20260902",
+      "first_call": "2026-10-12T15:10:26-0700",
+      "last_call": "2026-10-12T17:41:50-0700",
+      "calls": 265,
+      "errors": 0,
+      "resolved_models_seen": [
+        "google/gemini-3.8-flash"
+      ],
+      "providers_seen": [
+        "Google",
+        "Google AI Studio"
+      ],
+      "temperature_applied": [
+        0.7
+      ],
+      "top_p_applied": [
+        1.0
+      ],
+      "reasoning_setting": {
+        "effort": "low",
+        "exclude": true
+      },
+      "seed_applied": true,
+      "params_dropped_after_400": []
+    },
+    "openai/gpt-6.1-sol": {
+      "label": "GPT-6.1 Sol",
+      "canonical_slug": "openai/gpt-6.1-sol-20260929",
+      "first_call": "2026-10-12T15:10:27-0700",
+      "last_call": "2026-10-12T17:41:59-0700",
+      "calls": 265,
+      "errors": 0,
+      "resolved_models_seen": [
+        "openai/gpt-6.1-sol"
+      ],
+      "providers_seen": [
+        "OpenAI"
+      ],
+      "temperature_applied": "not accepted by model",
+      "top_p_applied": "not accepted by model",
+      "reasoning_setting": {
+        "effort": "low",
+        "exclude": true
+      },
+      "seed_applied": true,
+      "params_dropped_after_400": []
+    },
+    "mistralai/mistral-large-4-0": {
+      "label": "Mistral Large 4",
+      "canonical_slug": "mistralai/mistral-large-4-0-20261006",
+      "first_call": "2026-10-12T15:10:36-0700",
+      "last_call": "2026-10-12T17:42:21-0700",
+      "calls": 265,
+      "errors": 0,
+      "resolved_models_seen": [
+        "mistralai/mistral-large-4-0"
+      ],
+      "providers_seen": [
+        "Mistral"
+      ],
+      "temperature_applied": [
+        0.7
+      ],
+      "top_p_applied": [
+        1.0
+      ],
+      "reasoning_setting": {
+        "effort": "low",
+        "exclude": true
+      },
+      "seed_applied": true,
+      "params_dropped_after_400": []
+    },
+    "deepseek/deepseek-v4.1-flash": {
+      "label": "DeepSeek V4.1 Flash",
+      "canonical_slug": "deepseek/deepseek-v4.1-flash-20260910",
+      "first_call": "2026-10-12T15:10:31-0700",
+      "last_call": "2026-10-12T17:42:01-0700",
+      "calls": 265,
+      "errors": 0,
+      "resolved_models_seen": [
+        "deepseek/deepseek-v4.1-flash"
+      ],
+      "providers_seen": [
+        "Cloudflare",
+        "CoreWeave",
+        "Crusoe",
+        "Decart",
+        "DigitalOcean",
+        "GMICloud",
+        "InferenceNet",
+        "Ionstream",
+        "Makora",
+        "Modal",
+        "Morph",
+        "Novita",
+        "OpenInference",
+        "Parasail",
+        "Phala",
+        "Relace",
+        "Sail Research",
+        "StreamLake",
+        "Together",
+        "Venice"
+      ],
+      "temperature_applied": [
+        0.7
+      ],
+      "top_p_applied": [
+        1.0
+      ],
+      "reasoning_setting": {
+        "effort": "low",
+        "exclude": true
+      },
+      "seed_applied": true,
+      "params_dropped_after_400": []
+    }
+  },
+  "judges": {
+    "primary": {
+      "id": "x-ai/grok-4.7",
+      "canonical_slug": "x-ai/grok-4.7-20260916",
+      "calls": 1069,
+      "parse_failures": 2,
+      "first_call": "2026-10-12T15:12:17-0700",
+      "last_call": "2026-10-12T18:04:02-0700"
+    },
+    "probe": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "calls": 765,
+      "parse_failures": 1,
+      "first_call": "2026-10-12T15:12:13-0700",
+      "last_call": "2026-10-12T18:04:03-0700"
+    }
+  },
+  "embedding_model": "openai/text-embedding-3-small",
+  "freeze": {
+    "files": {
+      "data/items.json": "8004fdc2fc01e095f53dde48fc07be6eca061d281cda2e47d62d9c139bbd0ab4",
+      "bench/checks.py": "35d47b9f3bebabbb81a5c3ef5edd1b2852a5e87fdedefe68eb6f4b473b2557aa",
+      "bench/merge.py": "73ebf9e488c6c7e691f3851b3e5f7096beecb1669a4a51f219e41a4473e28e4d",
+      "prompts/generator_system.txt": "bf521fab7d5d77cb9bff6963831b4537dc3041389d211a9aef2cbbe3939657de",
+      "prompts/generator_user.txt": "f13a8f28d9ddd3200d0553d34e41ea955fa0b26ebf0bc5d77dfc22bcacc3e5fc",
+      "prompts/ideas.txt": "6438d38b268727414e3024ffbc4766c508c07d0bd41c889e7b2b8beb629b7c94",
+      "prompts/judge.txt": "76ce8fb02aacfa4ce46c9c03361e29a145f9d2eb534c28a6d6b1168de49a95c7"
+    },
+    "config_sha": "28d5137330f2b39a30be560d0212984435423bf6602a405a4a3b8b30e35e72fd",
+    "frozen_at": "2026-10-12T15:10:25-0700",
+    "re_verified_unchanged_at": "2026-10-12T16:56:32-0700",
+    "note": "Hashes were identical at the no-op re-freeze (re_verified_unchanged_at); frozen_at is the original freeze time."
+  },
+  "meta_fetched_at": "2026-10-12T15:07:23-0700"
+}

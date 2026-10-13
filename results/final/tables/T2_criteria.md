@@ -1,0 +1,9 @@
+| Model | Coherent | Relevant | Complies w/ brief | No unsupported claim | Passes programmatic checks | Format violation | Refusal | API error |
+|---|---|---|---|---|---|---|---|---|
+| Claude Sonnet 5.5 | 100.0 ± 0.0 | 99.5 ± 1.2 | 86.8 ± 7.4 | 98.9 ± 2.4 | 86.8 ± 7.4 | 0.0 ± 0.0 | 0.0 ± 0.0 | 0.0 ± 0.0 |
+| Gemini 3.8 Flash | 100.0 ± 0.0 | 97.4 ± 2.6 | 100.0 ± 0.0 | 100.0 ± 0.0 | 99.5 ± 1.2 | 0.0 ± 0.0 | 0.0 ± 0.0 | 0.0 ± 0.0 |
+| GPT-6.1 Sol | 100.0 ± 0.0 | 98.9 ± 1.4 | 100.0 ± 0.0 | 100.0 ± 0.0 | 100.0 ± 0.0 | 0.0 ± 0.0 | 0.0 ± 0.0 | 0.0 ± 0.0 |
+| Mistral Large 4 | 100.0 ± 0.0 | 98.4 ± 1.4 | 100.0 ± 0.0 | 99.5 ± 1.2 | 100.0 ± 0.0 | 0.0 ± 0.0 | 0.0 ± 0.0 | 0.0 ± 0.0 |
+| DeepSeek V4.1 Flash | 100.0 ± 0.0 | 100.0 ± 0.0 | 99.5 ± 1.2 | 98.9 ± 1.4 | 99.5 ± 1.2 | 0.0 ± 0.0 | 0.0 ± 0.0 | 0.0 ± 0.0 |
+
+Held-out split, %, mean ± SD across runs. Each criterion is a separate result; they are never combined into one score. Missing outputs count against the criterion (failures are kept).

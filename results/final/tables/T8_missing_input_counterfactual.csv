@@ -1,0 +1,6 @@
+Model,Valid: sparse → rich brief,Unsupported-claim rate: sparse → rich,Originality: sparse → rich,Generic rate: sparse → rich
+Claude Sonnet 5.5,73% → 100%,0% → 0%,2.50 → 3.20,57% → 0%
+Gemini 3.8 Flash,100% → 100%,0% → 0%,2.27 → 3.40,67% → 7%
+GPT-6.1 Sol,100% → 100%,0% → 0%,2.33 → 2.93,60% → 13%
+Mistral Large 4,100% → 100%,0% → 0%,2.13 → 2.93,73% → 27%
+DeepSeek V4.1 Flash,100% → 100%,0% → 0%,2.47 → 3.20,53% → 0%

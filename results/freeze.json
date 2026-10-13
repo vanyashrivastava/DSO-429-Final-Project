@@ -1,0 +1,15 @@
+{
+  "files": {
+    "data/items.json": "8004fdc2fc01e095f53dde48fc07be6eca061d281cda2e47d62d9c139bbd0ab4",
+    "bench/checks.py": "35d47b9f3bebabbb81a5c3ef5edd1b2852a5e87fdedefe68eb6f4b473b2557aa",
+    "bench/merge.py": "73ebf9e488c6c7e691f3851b3e5f7096beecb1669a4a51f219e41a4473e28e4d",
+    "prompts/generator_system.txt": "bf521fab7d5d77cb9bff6963831b4537dc3041389d211a9aef2cbbe3939657de",
+    "prompts/generator_user.txt": "f13a8f28d9ddd3200d0553d34e41ea955fa0b26ebf0bc5d77dfc22bcacc3e5fc",
+    "prompts/ideas.txt": "6438d38b268727414e3024ffbc4766c508c07d0bd41c889e7b2b8beb629b7c94",
+    "prompts/judge.txt": "76ce8fb02aacfa4ce46c9c03361e29a145f9d2eb534c28a6d6b1168de49a95c7"
+  },
+  "config_sha": "28d5137330f2b39a30be560d0212984435423bf6602a405a4a3b8b30e35e72fd",
+  "frozen_at": "2026-10-12T15:10:25-0700",
+  "re_verified_unchanged_at": "2026-10-12T16:56:32-0700",
+  "note": "Hashes were identical at the no-op re-freeze (re_verified_unchanged_at); frozen_at is the original freeze time."
+}

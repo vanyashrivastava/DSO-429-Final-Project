@@ -1,0 +1,34 @@
+| Metric | Model A | Model B | Δ (A−B) | Larger run-to-run SD of the two | 95% CI of Δ over items (paired) | Verdict |
+|---|---|---|---|---|---|---|
+| Valid outputs (%) | Claude Sonnet 5.5 | Gemini 3.8 Flash | -11.05 | 8.45 | -19.47 to -3.16 | RANKABLE |
+| Valid outputs (%) | Claude Sonnet 5.5 | GPT-6.1 Sol | -13.16 | 8.45 | -21.05 to -6.84 | RANKABLE |
+| Valid outputs (%) | Claude Sonnet 5.5 | Mistral Large 4 | -12.11 | 8.45 | -19.47 to -5.79 | RANKABLE |
+| Valid outputs (%) | Claude Sonnet 5.5 | DeepSeek V4.1 Flash | -12.63 | 8.45 | -20.53 to -6.30 | RANKABLE |
+| Valid outputs (%) | Gemini 3.8 Flash | GPT-6.1 Sol | -2.11 | 3.43 | -6.32 to +1.05 | within noise - do not rank |
+| Valid outputs (%) | Gemini 3.8 Flash | Mistral Large 4 | -1.05 | 3.43 | -5.26 to +2.63 | within noise - do not rank |
+| Valid outputs (%) | Gemini 3.8 Flash | DeepSeek V4.1 Flash | -1.58 | 3.43 | -5.79 to +1.58 | within noise - do not rank |
+| Valid outputs (%) | GPT-6.1 Sol | Mistral Large 4 | +1.05 | 1.44 | -1.05 to +3.68 | within noise - do not rank |
+| Valid outputs (%) | GPT-6.1 Sol | DeepSeek V4.1 Flash | +0.53 | 2.35 | -1.58 to +3.16 | within noise - do not rank |
+| Valid outputs (%) | Mistral Large 4 | DeepSeek V4.1 Flash | -0.53 | 2.35 | -3.16 to +2.11 | within noise - do not rank |
+| Originality (1–5) | Claude Sonnet 5.5 | Gemini 3.8 Flash | +0.07 | 0.13 | -0.11 to +0.26 | within noise - do not rank |
+| Originality (1–5) | Claude Sonnet 5.5 | GPT-6.1 Sol | +0.11 | 0.09 | -0.06 to +0.27 | within noise - do not rank |
+| Originality (1–5) | Claude Sonnet 5.5 | Mistral Large 4 | +0.28 | 0.09 | +0.02 to +0.52 | RANKABLE |
+| Originality (1–5) | Claude Sonnet 5.5 | DeepSeek V4.1 Flash | +0.09 | 0.08 | -0.09 to +0.26 | within noise - do not rank |
+| Originality (1–5) | Gemini 3.8 Flash | GPT-6.1 Sol | +0.04 | 0.13 | -0.13 to +0.20 | within noise - do not rank |
+| Originality (1–5) | Gemini 3.8 Flash | Mistral Large 4 | +0.21 | 0.13 | -0.00 to +0.42 | within noise - do not rank |
+| Originality (1–5) | Gemini 3.8 Flash | DeepSeek V4.1 Flash | +0.02 | 0.13 | -0.17 to +0.20 | within noise - do not rank |
+| Originality (1–5) | GPT-6.1 Sol | Mistral Large 4 | +0.17 | 0.09 | -0.04 to +0.38 | within noise - do not rank |
+| Originality (1–5) | GPT-6.1 Sol | DeepSeek V4.1 Flash | -0.02 | 0.09 | -0.18 to +0.13 | within noise - do not rank |
+| Originality (1–5) | Mistral Large 4 | DeepSeek V4.1 Flash | -0.19 | 0.09 | -0.34 to -0.03 | RANKABLE |
+| Contextual compliance (%) | Claude Sonnet 5.5 | Gemini 3.8 Flash | -20.00 | 13.04 | -36.00 to -6.00 | RANKABLE |
+| Contextual compliance (%) | Claude Sonnet 5.5 | GPT-6.1 Sol | -22.00 | 13.04 | -36.00 to -8.00 | RANKABLE |
+| Contextual compliance (%) | Claude Sonnet 5.5 | Mistral Large 4 | -22.00 | 13.04 | -36.00 to -8.00 | RANKABLE |
+| Contextual compliance (%) | Claude Sonnet 5.5 | DeepSeek V4.1 Flash | -22.00 | 13.04 | -36.00 to -8.00 | RANKABLE |
+| Contextual compliance (%) | Gemini 3.8 Flash | GPT-6.1 Sol | -2.00 | 4.47 | -6.00 to +0.00 | within noise - do not rank |
+| Contextual compliance (%) | Gemini 3.8 Flash | Mistral Large 4 | -2.00 | 4.47 | -6.00 to +0.00 | within noise - do not rank |
+| Contextual compliance (%) | Gemini 3.8 Flash | DeepSeek V4.1 Flash | -2.00 | 4.47 | -6.00 to +0.00 | within noise - do not rank |
+| Contextual compliance (%) | GPT-6.1 Sol | Mistral Large 4 | +0.00 | 0.00 | +0.00 to +0.00 | within noise - do not rank |
+| Contextual compliance (%) | GPT-6.1 Sol | DeepSeek V4.1 Flash | +0.00 | 0.00 | +0.00 to +0.00 | within noise - do not rank |
+| Contextual compliance (%) | Mistral Large 4 | DeepSeek V4.1 Flash | +0.00 | 0.00 | +0.00 to +0.00 | within noise - do not rank |
+
+Rule (frozen): two models are ranked on a metric only if |Δ| exceeds the run-to-run SD of either model AND the paired item-bootstrap CI of Δ excludes zero. Otherwise they are reported as indistinguishable. Compact letters per metric: {"valid": {"Claude Sonnet 5.5": "b", "Gemini 3.8 Flash": "a", "GPT-6.1 Sol": "a", "Mistral Large 4": "a", "DeepSeek V4.1 Flash": "a"}, "originality": {"Claude Sonnet 5.5": "a", "Gemini 3.8 Flash": "a", "GPT-6.1 Sol": "ab", "Mistral Large 4": "b", "DeepSeek V4.1 Flash": "a"}, "compliance": {"Claude Sonnet 5.5": "b", "Gemini 3.8 Flash": "a", "GPT-6.1 Sol": "a", "Mistral Large 4": "a", "DeepSeek V4.1 Flash": "a"}}
