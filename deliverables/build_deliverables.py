@@ -152,7 +152,24 @@ def load_results():
     R["j1_mean"], R["j2_mean"] = sum(a) / len(a), sum(b) / len(b)
     yes = {f: sum(r["j1"][f] for r in both) / len(both) for f in ("coherent", "relevant", "complies", "faithful")}
     R["min_yes"] = min(yes.values())
+    vp = os.path.join(ROOT, "results", "vs", "summary.json")
+    R["vs"] = json.load(open(vp)) if os.path.exists(vp) else None
     return R
+
+
+def vs_text(R):
+    """Numbers for the verbalized-sampling follow-up, all read from results/vs/summary.json."""
+    vs = R.get("vs")
+    if not vs:
+        return None
+    m = list(vs["models"].values())
+    rng = lambda c, k: (min(v[c][k] for v in m), max(v[c][k] for v in m))
+    dl = [v["vs_minus_list_ideas"][0] for v in m]
+    do = [v["vs_minus_list_orig"][0] for v in m]
+    n_ben = sum(1 for v in m if v["beneficial"])
+    any_ci = sum(1 for v in m if v["vs_minus_list_ideas"][1] > 0)
+    return {"n": vs["n_items"], "dir": rng("direct", "ideas"), "list": rng("list", "ideas"), "vs": rng("vs", "ideas"),
+            "dl": (min(dl), max(dl)), "do": (min(do), max(do)), "n_ben": n_ben, "any_ci": any_ci}
 
 
 def pct(x, d=1):
@@ -344,30 +361,39 @@ def build_deck(R, path):
         footer(c, 5, "Tables T3, T5, T7, T8, T9 · disputes.md lists the cases to read")
         c.save()
 
-        # 6 interpretation (dark, like the old closing slide)
+        # 6 interpretation + follow-up (dark, like the old closing slide)
+        V = vs_text(R)
         c = Canvas(pdf, 1440, 810, 14.4, 8.1, NAVY)
-        c.text(96, 118, "What this means, and what we would do Monday", "serifb", 46, CREAM)
-        c.text(96, 192, "All five write valid slogans. None writes distinctive ones.", "serifb", 36, ACCENT_DK)
-        c.text(96, 240, "Use them for first drafts, not finished copy.", "serifb", 36, ACCENT_DK)
-        cols = [("Against our line", "Four models pass validity and constraints; **all five miss originality** "
-                 "(%.2f best, %.2f worst, line 3.0). Sonnet also misses validity: an instruction-following "
-                 "slip, not a creativity gap." % (M[best_o]["orig"]["mean"], M[worst_o]["orig"]["mean"])),
-                ("What to do Monday", "Choose on reliability and cost: %s is cheapest ($%.2f per 1,000 slogans). "
-                 "Add a length check before human review. **Supply a differentiator** in the brief: it was our "
-                 "cheapest originality gain." % (nm[cheapest], M[cheapest]["cost"] / M[cheapest]["calls"] * 1000)),
-                ("Limits and next change", "No human check yet; one judge family; 50 companies; sampling not "
-                 "identical; originality is not persuasion. **Next:** blinded human ratings of ~200 slogans to anchor "
-                 "the score.")]
-        for i, (h, b) in enumerate(cols):
+        c.text(96, 112, "What this means, and what we would do Monday", "serifb", 44, CREAM)
+        c.text(96, 176, "All five write valid slogans. None writes distinctive ones.", "serifb", 34, ACCENT_DK)
+        c.text(96, 220, "Use them for first drafts, not finished copy.", "serifb", 34, ACCENT_DK)
+        cols = [("Against our line", "Four models pass validity and constraints; **all five miss originality** (%.2f best, "
+                 "%.2f worst, line 3.0). Sonnet also misses validity: a word-limit slip, not a creativity gap."
+                 % (M[best_o]["orig"]["mean"], M[worst_o]["orig"]["mean"])),
+                ("What to do Monday", "Choose on reliability and cost (%s: $%.2f per 1,000). Add a length check before "
+                 "human review. **Supply a differentiator**: our cheapest originality gain. **Ask for five in one call**."
+                 % (nm[cheapest].split(" ")[0], M[cheapest]["cost"] / M[cheapest]["calls"] * 1000)),
+                ("Limits and next change", "No human check yet; one judge family; 50 companies; sampling not identical; "
+                 "originality is not persuasion. **Next:** blinded human ratings of ~200 slogans.")]
+        for i, (h, b_) in enumerate(cols):
             x = 96 + i * 425
-            c.card(x, 300, 395, 330, fill=NAVY, edge="#3A3D4A", lw=1.8)
-            c.text(x + 26, 348, h, "sansb", 27, CREAM)
-            c.para(x + 26, 396, 345, b, size=23, color="#DAD9D5", bcolor=CREAM, limit=626, lead=1.38)
-        c.card(96, 655, 1245, 90, fill=NAVY, edge=ACCENT_DK, lw=2.2)
-        c.text(124, 695, "BREAK IT  ·  write one item you think this benchmark would get wrong", "sansb", 24, ACCENT_DK)
-        c.text(124, 727, "A case a model would fail for a reason we did not test, or one our grader would score incorrectly.",
-               "sans", 21, SOFT)
-        footer(c, 6, "Full tables, figures, raw outputs and the re-run README are in the archive", dark=True)
+            c.card(x, 252, 395, 262, fill=NAVY, edge="#3A3D4A", lw=1.8)
+            c.text(x + 24, 296, h, "sansb", 25, CREAM)
+            c.para(x + 24, 336, 350, b_, size=20, color="#DAD9D5", bcolor=CREAM, limit=508, lead=1.34)
+        if V:
+            c.card(96, 530, 1245, 128, fill=NAVY, edge="#3A3D4A", lw=1.8)
+            c.text(124, 566, "FOLLOW-UP  ·  verbalized sampling (%d held-out items, exploratory)" % V["n"], "sansb", 23, CREAM)
+            c.para(124, 598, 1190, "Five slogans in one call lifted distinct ideas from **%.1f–%.1f** (five calls) to **%.1f–%.1f** "
+                   "(plain list) and **%.1f–%.1f** (VS), out of 5. The probability request itself added %+.2f to %+.2f over "
+                   "the list, every interval includes zero, and originality did not rise. Verdict: not beneficial for %s."
+                   % (V["dir"][0], V["dir"][1], V["list"][0], V["list"][1], V["vs"][0], V["vs"][1], V["dl"][0], V["dl"][1],
+                      "any of the five models" if V["n_ben"] == 0 else "all but %d model(s)" % (5 - V["n_ben"])),
+                   size=19, color="#DAD9D5", bcolor=CREAM, limit=654, lead=1.3)
+        c.card(96, 672, 1245, 80, fill=NAVY, edge=ACCENT_DK, lw=2.2)
+        c.text(124, 706, "BREAK IT  ·  write one item you think this benchmark would get wrong", "sansb", 22, ACCENT_DK)
+        c.text(124, 736, "A case a model would fail for a reason we did not test, or one our grader would score incorrectly.",
+               "sans", 19, SOFT)
+        footer(c, 6, "Follow-up files: PREREGISTRATION_VS.md, results/vs, results/list in the archive", dark=True)
         c.save()
     return c.warnings
 
@@ -462,6 +488,19 @@ def build_onepager(R, path):
                                         round(min(gr) * 100), round(max(gr) * 100), min(od), max(od),
                                         M[order[3]]["contam"] * 100, int(R["min_yes"] * 100), R["qwk"], sp[0], sp[1], sp[2]),
                    "times", "timesb", S, "black", LEAD)
+        V = vs_text(R)
+        if V:
+            y += 3
+            y = c.para(L, y, W, "**Follow-up, verbalized sampling (exploratory; %d held-out items, 5 candidates each, "
+                       "pre-registered afterwards).** Asking for five slogans in one call raised distinct ideas from "
+                       "%.1f–%.1f (five independent calls) to %.1f–%.1f for a plain list and %.1f–%.1f for verbalized "
+                       "sampling (of 5). The probability request added only %+.2f to %+.2f over the list (every 95%% interval "
+                       "includes zero) and did not raise originality (%+.2f to %+.2f), so the pre-registered rule marks it "
+                       "beneficial for %s. The gain comes from list-style prompting, not from the probabilities." % (
+                           V["n"], V["dir"][0], V["dir"][1], V["list"][0], V["list"][1], V["vs"][0], V["vs"][1],
+                           V["dl"][0], V["dl"][1], V["do"][0], V["do"][1],
+                           "none of the five models" if V["n_ben"] == 0 else "%d of five models" % V["n_ben"]),
+                       "times", "timesb", S, "black", LEAD)
         y += 5
         y = head(y, "4  Limitations and what we would do next")
         y = c.para(L, y, W, "This benchmark does not show that a slogan sells: originality is a model's rating, not "
@@ -489,11 +528,20 @@ def build_notes(R, path):
     gr = [M[m]["gen_r"] for m in order]
     od = [M[m]["o_r"] - M[m]["o_b"] for m in order]
     sp = R["self_pref"]
+    V = vs_text(R)
+    vs_para = ("We also ran a follow-up on verbalized sampling, the method from the paper our proposal was built on, on {n} "
+               "held-out companies. Asking for five slogans in one call lifted distinct ideas from {d0:.1f} to {d1:.1f} "
+               "out of five with separate calls, to {l0:.1f} to {l1:.1f} with a plain list and {v0:.1f} to {v1:.1f} with "
+               "verbalized sampling. The part that is specific to verbalized sampling, asking for probabilities, added "
+               "between {a:+.2f} and {b:+.2f} ideas over the list, every interval includes zero, and originality did not "
+               "go up. So by our own rule it is not beneficial for any model: the gain is from list-style prompting.").format(
+        n=V["n"], d0=V["dir"][0], d1=V["dir"][1], l0=V["list"][0], l1=V["list"][1], v0=V["vs"][0], v1=V["vs"][1],
+        a=V["dl"][0], b=V["dl"][1]) if V else ""
     md = f"""# Speaker Notes — Benchmarking Ad Slogan Writing in LLMs
 
 Oct 13, 2026 · Project 1, Phase 2 final deliverable · six-minute slot, questions included
 
-**Timing plan:** about 4:45 of talking plus the 15-second call-it pause, which leaves about a minute for questions. The
+**Timing plan:** about 5:05 of talking plus the 15-second call-it pause, which leaves roughly 40 seconds for questions; if you run long, cut the follow-up paragraph on slide 6 to one sentence. The
 suggested speaker split below is a default: change the names freely, but whoever presents a slide should also be able to
 answer questions about the others (the assignment requires it for every team member).
 
@@ -561,12 +609,14 @@ inflated; we report a supplementary score without those outputs. The yes/no crit
 come from our rules. And we looked for self-preference: the Claude judge minus the neutral judge, for Claude's own family
 against the others, is {sp[0]:+.2f} with an interval of {sp[1]:+.2f} to {sp[2]:+.2f}, so we found none.
 
-## Slide 6 — Interpretation — Kirti Subramanian (0:45)
+## Slide 6 — Interpretation — Kirti Subramanian (1:05)
 
 What this means: every model writes a valid slogan, and none writes a distinctive one. Against our own line, four models
 pass validity and constraints and all five miss originality. So on Monday, treat these as first-draft tools. Choose a model
 on reliability and cost, add a simple length check before human review, and put a differentiator in the brief, because that
 was our cheapest originality gain.
+
+{vs_para}
 
 The limits matter. We have not yet validated the judge against people, we used one primary judge family, fifty companies
 and one prompt, and originality is a rating, not evidence a slogan sells. The one change we would make with two more weeks
@@ -594,6 +644,13 @@ benchmark would get wrong.
   pilot and before the freeze.
 - **What did it cost?** ${R['total_cost']:.2f} in total: ${R['total_gen_cost']:.2f} generating and ${R['eval_cost']:.2f}
   grading. Generation is cheap; evaluation dominates.
+- **Did you try verbalized sampling, and did it work?** Yes, as a follow-up on 12 held-out companies with a plain-list
+  control. Any one-call list raised distinct ideas; the probability request added little (all intervals include zero)
+  and did not raise originality. It was pre-registered afterwards and is exploratory.
+- **Does mode collapse explain the low originality?** Not on our evidence. Repetition exists (15-31% exact duplicates
+  across five direct calls) but the model that repeats most (Sonnet) scores highest on originality.
+- **What went wrong in the follow-up run?** A burst of credit-reservation errors (HTTP 402) rejected 82 judge and grouping
+  calls; we detected it, retried only those, and checked 298 of 298 judgments and 60 of 60 groupings were complete.
 - **What could still be wrong?** The human audit has not been scored, sampling parameters differed by model, and the
   stress subtypes have two or three items each.
 """

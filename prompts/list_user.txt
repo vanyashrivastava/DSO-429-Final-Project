@@ -1,0 +1,11 @@
+Company: {company}
+Industry: {industry}
+About the company: {description}
+{brief_line}Requirements (every slogan must meet them):
+{requirements}
+
+Generate 5 different slogans for this company.
+
+Return the slogans in JSON format with the key "responses" (a list of dicts). Each dictionary must include:
+- text: the slogan string only (no explanation or extra text).
+Give ONLY the JSON object, with no explanations or extra text.

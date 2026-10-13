@@ -188,7 +188,7 @@ def _judge_params(cfg, meta_entry):
 def judge(cfg, client, meta, items, store, budget, workers, roles=("primary", "probe")):
     by_id = {i["id"]: i for i in items}
     gens = store.load("generations.jsonl")
-    have = store.load("judgments.jsonl")
+    have = {k: v for k, v in store.load("judgments.jsonl").items() if v.get("parsed")}   # errored/unparsed are retried
     tasks, seen = [], set()
     for rec in gens.values():
         item = by_id.get(rec["item_id"])
@@ -238,6 +238,7 @@ def judge(cfg, client, meta, items, store, budget, workers, roles=("primary", "p
 
 def ideas(cfg, client, meta, items, store, budget, workers):
     rows, have = merge.build_rows(store, items, cfg)
+    have = {k: v for k, v in have.items() if v.get("groups")}   # errored/unusable groupings are retried
     jid = cfg["judges"]["primary"]["id"]
     groups = {}
     for r in rows:

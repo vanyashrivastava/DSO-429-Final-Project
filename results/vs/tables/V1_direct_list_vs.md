@@ -1,0 +1,9 @@
+| Model | Distinct ideas per 5 (Direct / List / VS) | Valid, % | Originality (1–5) | Embedding diversity | Real slogan reproduced, % | Cost per item (5 candidates) | Median call latency, s |
+|---|---|---|---|---|---|---|---|
+| Claude Sonnet 5.5 | 1.92 / 3.42 / 3.67 | 83 / 98 / 92 | 2.76 / 2.51 / 2.42 | 0.25 / 0.57 / 0.57 | 0 / 0 / 5 | $0.003 / $0.002 / $0.002 | 1.5 / 2.1 / 2.3 |
+| Gemini 3.8 Flash | 2.50 / 3.50 / 3.50 | 93 / 95 / 93 | 2.47 / 2.39 / 2.25 | 0.34 / 0.56 / 0.57 | 0 / 0 / 8 | $0.003 / $0.001 / $0.001 | 1.8 / 2.5 / 2.8 |
+| GPT-6.1 Sol | 2.42 / 3.25 / 3.75 | 97 / 92 / 93 | 2.48 / 2.49 / 2.43 | 0.27 / 0.58 / 0.60 | 0 / 0 / 0 | $0.005 / $0.001 / $0.002 | 3.0 / 3.1 / 3.9 |
+| Mistral Large 4 | 3.08 / 3.58 / 3.75 | 100 / 93 / 98 | 2.38 / 2.34 / 2.24 | 0.42 / 0.52 / 0.56 | 18 / 8 / 5 | $0.017 / $0.003 / $0.006 | 20.3 / 17.8 / 25.7 |
+| DeepSeek V4.1 Flash | 2.83 / 3.58 / 3.33 | 98 / 97 / 100 | 2.53 / 2.36 / 2.27 | 0.37 / 0.52 / 0.47 | 15 / 5 / 2 | $0.002 / $0.001 / $0.001 | 3.1 / 3.7 / 3.4 |
+
+12 held-out items, 5 candidates per (model, item). Direct = 5 independent calls (results/final); List and VS = one call returning 5. Judge: primary only.

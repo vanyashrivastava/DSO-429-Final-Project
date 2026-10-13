@@ -1,0 +1,29 @@
+{
+  "frozen_at": "2026-10-12T18:37:58-0700",
+  "subset": [
+    "c05",
+    "c06",
+    "c10",
+    "c12",
+    "c14",
+    "c25",
+    "c29",
+    "c33",
+    "c36",
+    "c47",
+    "c48",
+    "c50"
+  ],
+  "k": 5,
+  "rule": {
+    "min_extra_ideas": 0.5,
+    "max_originality_drop": 0.25,
+    "max_cost_ratio": 1.25
+  },
+  "prompts": {
+    "prompts/vs_system.txt": "937f208f2b6635c55829af19eb190c44bf3b03e5b4fd5a297e10088f2e1a8b4f",
+    "prompts/list_user.txt": "0fbfedac2bebbe16a6c79aeae976ed96e68847fc02742bba1dc9a07c8e53cab0",
+    "prompts/vs_user.txt": "f1ae6baaaefaf48ab52d4ebd3b841ea1663bc724004e5abe18ca42da43469c93"
+  },
+  "note": "Written before any List/VS output was collected. Direct baseline = results/final runs 1-5."
+}

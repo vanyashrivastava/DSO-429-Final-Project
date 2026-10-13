@@ -285,9 +285,11 @@ def cmd_selftest(args):
 def main(argv=None):
     p = argparse.ArgumentParser(prog="bench.py", description=__doc__)
     sub = p.add_subparsers(dest="cmd", required=True)
+    from . import vs
     for name, fn in (("check", cmd_check), ("estimate", cmd_estimate), ("freeze", cmd_freeze), ("run", cmd_run),
                      ("show", cmd_show), ("analyze", cmd_analyze), ("audit", cmd_audit), ("package", cmd_package),
-                     ("selftest", cmd_selftest)):
+                     ("selftest", cmd_selftest), ("vs-freeze", vs.cmd_freeze), ("vs-run", vs.cmd_run),
+                     ("vs-analyze", vs.cmd_analyze)):
         s = sub.add_parser(name)
         s.set_defaults(fn=fn)
         s.add_argument("--phase", choices=["pilot", "final"], default="final")
@@ -301,6 +303,7 @@ def main(argv=None):
         s.add_argument("--retry-errors", action="store_true")
         s.add_argument("--refresh", action="store_true")
         s.add_argument("--n", type=int, default=60)
+        s.add_argument("--condition", choices=["list", "vs"], default=None, help="vs-run: one condition only")
         s.add_argument("--items", default=None, help="comma-separated item ids (e.g. c02,c31) to restrict run/show")
     args = p.parse_args(argv)
     args.fn(args)

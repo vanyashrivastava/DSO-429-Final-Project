@@ -2,7 +2,7 @@
 
 Oct 13, 2026 · Project 1, Phase 2 final deliverable · six-minute slot, questions included
 
-**Timing plan:** about 4:45 of talking plus the 15-second call-it pause, which leaves about a minute for questions. The
+**Timing plan:** about 5:05 of talking plus the 15-second call-it pause, which leaves roughly 40 seconds for questions; if you run long, cut the follow-up paragraph on slide 6 to one sentence. The
 suggested speaker split below is a default: change the names freely, but whoever presents a slide should also be able to
 answer questions about the others (the assignment requires it for every team member).
 
@@ -70,12 +70,14 @@ inflated; we report a supplementary score without those outputs. The yes/no crit
 come from our rules. And we looked for self-preference: the Claude judge minus the neutral judge, for Claude's own family
 against the others, is -0.12 with an interval of -0.24 to +0.00, so we found none.
 
-## Slide 6 — Interpretation — Kirti Subramanian (0:45)
+## Slide 6 — Interpretation — Kirti Subramanian (1:05)
 
 What this means: every model writes a valid slogan, and none writes a distinctive one. Against our own line, four models
 pass validity and constraints and all five miss originality. So on Monday, treat these as first-draft tools. Choose a model
 on reliability and cost, add a simple length check before human review, and put a differentiator in the brief, because that
 was our cheapest originality gain.
+
+We also ran a follow-up on verbalized sampling, the method from the paper our proposal was built on, on 12 held-out companies. Asking for five slogans in one call lifted distinct ideas from 1.9 to 3.1 out of five with separate calls, to 3.2 to 3.6 with a plain list and 3.3 to 3.8 with verbalized sampling. The part that is specific to verbalized sampling, asking for probabilities, added between -0.25 and +0.50 ideas over the list, every interval includes zero, and originality did not go up. So by our own rule it is not beneficial for any model: the gain is from list-style prompting.
 
 The limits matter. We have not yet validated the judge against people, we used one primary judge family, fifty companies
 and one prompt, and originality is a rating, not evidence a slogan sells. The one change we would make with two more weeks
@@ -103,5 +105,12 @@ benchmark would get wrong.
   pilot and before the freeze.
 - **What did it cost?** $14.77 in total: $1.54 generating and $13.23
   grading. Generation is cheap; evaluation dominates.
+- **Did you try verbalized sampling, and did it work?** Yes, as a follow-up on 12 held-out companies with a plain-list
+  control. Any one-call list raised distinct ideas; the probability request added little (all intervals include zero)
+  and did not raise originality. It was pre-registered afterwards and is exploratory.
+- **Does mode collapse explain the low originality?** Not on our evidence. Repetition exists (15-31% exact duplicates
+  across five direct calls) but the model that repeats most (Sonnet) scores highest on originality.
+- **What went wrong in the follow-up run?** A burst of credit-reservation errors (HTTP 402) rejected 82 judge and grouping
+  calls; we detected it, retried only those, and checked 298 of 298 judgments and 60 of 60 groupings were complete.
 - **What could still be wrong?** The human audit has not been scored, sampling parameters differed by model, and the
   stress subtypes have two or three items each.

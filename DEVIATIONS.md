@@ -55,3 +55,17 @@ chose while building and needs a yes or a change from the team before the freeze
 | T5 column "originality excluding outputs that reproduce a real slogan" (supplementary; the frozen originality metric in T1 is untouched) | In the first slice the primary judge scored Mistral Large 4's verbatim Coca-Cola slogan "Open Happiness" 4/5 for originality (the probe judge agreed). A memorised slogan is distinctive but not original generation, so the frozen metric can be inflated by memorisation. Reported alongside, never instead |
 | Network errors during a response read (`IncompleteRead`) are now retried, and a failed worker no longer aborts the run | The first slice crashed on one cut-off response; stored outputs were intact and the run resumed |
 | `freeze.json` carries `re_verified_unchanged_at` | An unnecessary no-op re-freeze was run after the first slice began; hashes were identical and the original `frozen_at` (15:10:25) is retained |
+
+## Follow-up added after the main study: verbalized sampling (exploratory)
+- **What:** List vs VS-Standard (Zhang et al. 2026) at 5 candidates per (model, item) on 12 held-out items, against the
+  main study's 5 direct runs. Protocol and rule in `PREREGISTRATION_VS.md`; subset and prompt hashes in
+  `results/vs_prereg.json`, written before any List/VS output. It is **post-hoc** relative to the proposal (which had
+  retired the VS question in row 2) and uses the proposal's own "VS is beneficial" rule scaled from 2-in-20 to 0.5-in-5.
+- **Result:** one-call lists raised distinct ideas over five direct calls; the probability request added +0.0 to +0.5
+  (every interval includes zero) and no originality, so the rule marks VS beneficial for no model.
+- **Premise corrected:** the main study did not show that mode collapse caused its misses; this test makes no such claim.
+- **Run incident:** with 8 workers and a thin balance, OpenRouter rejected 34 judgments and 48 idea-groupings with HTTP 402
+  (credit reserved for in-flight requests). Detected, retried only those calls with 2 workers, and verified 298/298
+  judgments and 60/60 groupings usable before analysis. Code fix: errored judge/grouping records are now retried instead
+  of being treated as done (`bench/pipeline.py`).
+- **Caveats:** 12 items, primary judge only, same sampling-parameter limits as the main study, $3.93 total.

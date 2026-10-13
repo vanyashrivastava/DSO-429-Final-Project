@@ -32,6 +32,7 @@ Reproducing the numbers **without** an API key: `results/final/raw/*.jsonl` hold
 - `PREREGISTRATION.md` definitions, acceptable-failure line, ranking rule (frozen before the run). `DEVIATIONS.md` changes vs the proposal.
 - `prompts/judge.txt` is the exact judge prompt and rubric; `bench/checks.py` + `bench/merge.py` are the grading code.
 - `results/final/raw/` generations, judgments, idea groupings, embeddings (unedited). `outputs_sample.csv`: 12 raw outputs per model.
+- `PREREGISTRATION_VS.md`, `results/list/`, `results/vs/`: post-hoc verbalized-sampling follow-up on 12 held-out items (`bench.py vs-freeze`, `vs-run`, `vs-analyze`); Direct baseline = `results/final`.
 - `results/final/tables/` T1-T10 (`.md` and `.csv`), `figures/` fig1-fig5, `disputes.md`, `audit/` (blinded human sheet).
 
 ## Notes
